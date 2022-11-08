@@ -38,3 +38,8 @@ resource "aws_instance" "c" {
   echo `hostname` > /var/www/html/index.html
   EOF
 }
+
+resource "aws_security_group" "for_webserver_ec2" {
+    name ="for-ec2-instances"
+    vpc_id= aws_vpc.example.id
+}
