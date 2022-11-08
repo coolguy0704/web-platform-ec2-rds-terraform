@@ -63,3 +63,17 @@ resource "aws_route_table_association" "public_c_web" {
     subnet_id      = aws_subnet.public_c_web.id
     route_table_id = aws_route_table.public.id
 }
+
+resource "aws_subnet" "private_a" {
+    vpc_id                  = aws_vpc.example.id
+    cidr_block              = "10.0.5.0/24"
+    map_public_ip_on_launch = false
+    availability_zone       = "ap-northeast-1a"
+}
+
+resource "aws_subnet" "private_c" {
+    vpc_id                  = aws_vpc.example.id
+    cidr_block              = "10.0.6.0/24"
+    map_public_ip_on_launch = false
+    availability_zone       = "ap-northeast-1c"
+}
